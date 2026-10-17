@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adopción de Gatos</title>
+  
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #fc92ee;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    main {s
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    
+    .contenedor-img {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    #imgGatito {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    
+    button {
+      background-color: #2883a7;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #216788;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    /* Vista previa del texto */
+    #vistaPrevia {
+      font-size: 14px;
+      color: #666;
+      font-style: italic;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Adopción de Gatitos</h1>
+  </header>
+
+  <main>
+    <h2>Conoce a Félix</h2>
+    
+    
+    <div class="contenedor-img">
+      <img id="imgGatito" src="imagenes/gatito.jpg" alt="Gatito buscando un hogar">
+      <p><i>Pasa el ratón por encima de la foto</i></p>
+    </div>
+
+    
+    <button id="btnAdoptar">¡Quiero Adoptar a Félix!</button>
+
+    <hr style="margin: 25px 0;">
+
+    
+    <h3>Formulario de Contacto</h3>
+    <form id="formContacto">
+      <label for="nombreUsuario">Tu nombre:</label>
+      <input type="text" id="nombreUsuario" placeholder="Escribe tu nombre aquí">
+
+      <label for="txtComentario">Comentario o mensaje:</label>
+      <textarea id="txtComentario" rows="3" placeholder="Escribe un mensaje..."></textarea>
+      
+      
+      <p id="vistaPrevia"></p>
+
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+  </main>
+
+  
+  <script>
+    
+    var botonAdoptar = document.getElementById("btnAdoptar");
+
+    botonAdoptar.onclick = function() {
+      alert("¡Gracias por tu interés en adoptar a Félix! Nos pondremos en contacto contigo pronto.");
+    };
+
+
+    
+    var imagenGato = document.getElementById("imgGatito");
+
+    imagenGato.onmouseover = function() {
+      imagenGato.style.transform = "scale(1.08)";
+      imagenGato.style.transition = "0.3s";
+    };
+
+
+    
+    imagenGato.onmouseout = function() {
+      imagenGato.style.transform = "scale(1)";
+    };
+
+
+   
+    var campoComentario = document.getElementById("txtComentario");
+    var vistaPrevia = document.getElementById("vistaPrevia");
+
+    campoComentario.onkeydown = function() {
+      vistaPrevia.innerHTML = "Escribiendo: " + campoComentario.value;
+    };
+
+
+    
+    var formularioGatos = document.getElementById("formContacto");
+
+    formularioGatos.onsubmit = function(evento) {
+      var nombre = document.getElementById("nombreUsuario").value;
+
+      if (nombre === "") {
+        alert("Por favor, escribe tu nombre antes de enviar el formulario.");
+        evento.preventDefault(); // Detiene el envío del formulario
+      } else {
+        alert("¡Gracias " + nombre + ", tu solicitud ha sido enviada con éxito!");
+      }
+    };
+  </script>
+
+</body>
+</html>
